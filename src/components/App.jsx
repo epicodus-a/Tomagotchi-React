@@ -1,15 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import SimpleAppBar from './testmaterial';
 
 function App(){
   return (
     <div>
-      <style jsx>{`
-          background-color: black;
-          height: 1200px;
-      `}</style>
       <Switch>
-
+        <Route path='/' component={SimpleAppBar} />
       </Switch>
     </div>
   );
