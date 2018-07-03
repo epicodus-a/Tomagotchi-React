@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+import { Redirect } from 'react-router-dom'
+
+import Moment from 'moment';
 import sleep from '../assets/img/tsleep.png';
 import play from '../assets/img/tplay.gif';
 import food from '../assets/img/tfood.gif';
+
+import Food from './Food';
 
 
 
@@ -12,12 +16,32 @@ class HomePage extends React.Component{
   // let _sleep = null;
   // let _play = null;
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      selectedOption: 'sleep'
+      redirect: false,
+      selectedOption: 'sleep',
+      sleepLevel: 100,
+      playLevel: 100,
+      foodLevel: 100
+
     }
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
+  }
+
+ //  let setRedirect = () => {
+ //   this.setState({
+ //     redirect: true
+ //   })
+ // }
+ //
+ // let renderRedirect = () => {
+ //     if (this.state.redirect && this.selectedOption === 'food') {
+ //       return <Redirect to='/food'>
+ //     }
+ //   }
+  componentDidMount() {
+
   }
 
   handleOptionChange(changeEvent) {
@@ -28,10 +52,14 @@ class HomePage extends React.Component{
 
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
-    console.log('You have selected:', this.state.selectedOption);
+    // return  <Redirect to=`/${this.state.selectedOption}` />
   }
-  render() {
 
+
+  render() {
+    if (this.state.selectedOption === 'food') {
+      return  <Redirect to='/food' />
+    }
 
     return (
       <div>
@@ -65,7 +93,7 @@ class HomePage extends React.Component{
             Food
           </label>
         </div>
-        <button classname="button" type='submit'>Choose One</button>
+        <button className="button" type='submit'>Choose One</button>
       </form>
       </div>
     );
