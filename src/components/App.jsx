@@ -5,18 +5,6 @@ import { Redirect } from 'react-router-dom'
 import Food from './Food';
 import HomePage from './HomePage';
 
-// function App(){
-//   return (
-//     <div>
-//       <Switch>
-//         <Route path='/' component={SimpleAppBar} />
-//       </Switch>
-//     </div>
-//   );
-// }
-//
-// export default App;
-
 class App extends React.Component{
 
   constructor(props){
@@ -68,7 +56,6 @@ class App extends React.Component{
         foodLevel: 100
       })
     }
-
   }
 
   render(){
